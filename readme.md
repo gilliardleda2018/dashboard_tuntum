@@ -1,38 +1,155 @@
+from pathlib import Path
+import textwrap
+
+readme = r"""
 # Dashboard Eleitoral Inteligente — Tuntum MA
 
-Sistema de análise territorial da votação municipal de Tuntum-MA com visualização geográfica, indicadores estratégicos e análise híbrida com inteligência artificial.
+![Python](https://img.shields.io/badge/Python-3.10+-blue)
+![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-red)
+![GeoPandas](https://img.shields.io/badge/GeoPandas-Geospatial-green)
+![Plotly](https://img.shields.io/badge/Plotly-Visualização-orange)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
+
+Dashboard territorial inteligente para análise da votação municipal de **Tuntum-MA**, integrando dados eleitorais, georreferenciamento, indicadores estratégicos e inteligência artificial híbrida.
+
+---
 
 ## Visão geral
 
-Este projeto foi desenvolvido para apoiar leitura estratégica de dados eleitorais por localidade, ponto de votação e zona territorial, integrando análise quantitativa, georreferenciamento e inteligência artificial aplicada.
+Este projeto foi desenvolvido para transformar dados eleitorais em leitura estratégica territorial.
 
-## Tecnologias utilizadas
+O painel permite analisar a votação por:
 
-* Python
-* Streamlit
-* Pandas
-* NumPy
-* Plotly
-* GeoPandas
-* OpenAI API
+- localidade;
+- ponto de votação;
+- seção eleitoral;
+- zona urbana;
+- zona rural;
+- candidato;
+- abstenção;
+- competitividade;
+- índice de oportunidade.
+
+Além da visualização dos dados, o projeto inclui uma camada de **IA local, online e híbrida**, permitindo perguntas dinâmicas ao painel.
+
+---
+
+## Objetivo
+
+Ajudar na identificação de territórios com maior potencial de atuação eleitoral, considerando:
+
+- concentração de eleitores;
+- volume de abstenção;
+- disputa acirrada;
+- liderança local;
+- pontos de votação estratégicos;
+- diferença entre zona urbana e zona rural.
+
+---
+
+## Demonstração visual
+
+> Adicione aqui prints do dashboard.
+
+## Sugestões de imagens:
+
+
+assets/dashboard_home.png
+assets/mapa_tuntum.png
+assets/zona_rural.png
+assets/analise_ia.png
+
 
 ## Principais funcionalidades
+Visão geral da eleição
+KPIs principais;
+total de votos por candidato;
+percentual geral da votação;
+gráfico de barras;
+gráfico de pizza.
+Mapa territorial
+malha geográfica de Tuntum em GeoJSON;
+pontos das localidades;
+liderança local;
+índice de oportunidade;
+informações por hover no mapa.
+Análise por localidade
+comparação Fernando x Tema;
+saldo de votos;
+participação percentual;
+abstenção;
+competitividade;
+índice de oportunidade;
+recomendações práticas.
+Análise por ponto de votação
+agrupamento por escola/prédio;
+seções associadas;
+localidades atendidas;
+votos por candidato;
+pontos mais estratégicos.
+Organização territorial
 
-* análise por localidade
-* análise por ponto de votação
-* separação zona urbana / zona rural
-* índice de oportunidade eleitoral
-* competitividade territorial
-* mapa geográfico interativo
-* recomendações automáticas
-* IA local
-* IA online
-* IA híbrida
-* perguntas dinâmicas ao painel
+##O painel separa as análises em:
+
+Zona Urbana;
+Zona Rural.
+
+##Cada aba possui:
+
+KPIs próprios;
+gráficos comparativos;
+tabela de seções;
+resumo por ponto de votação.
+Inteligência artificial híbrida
+
+##O painel possui três modos de IA:
+
+IA Local: gera análise estratégica sem custo de API;
+IA Online: usa API da OpenAI;
+IA Híbrida: tenta API online e, em caso de erro, usa IA local automaticamente.
+
+##A IA responde perguntas como:
+
+Quais localidades são mais promissoras?
+Onde há maior risco?
+Onde Fernando pode crescer?
+Onde Tema pode crescer?
+Quais pontos de votação são prioritários?
+Qual a diferença entre zona urbana e zona rural?
+Índice de oportunidade
+
+##O índice de oportunidade é calculado com base em três fatores:
+
+Índice = 0.45 * abstenção normalizada
+       + 0.35 * eleitorado normalizado
+       + 0.20 * competitividade normalizada
+Interpretação
+
+##Quanto maior o índice, maior o potencial estratégico da localidade.
+
+##Territórios com alto índice tendem a reunir:
+
+muitos eleitores;
+abstenção relevante;
+disputa competitiva.
+Competitividade eleitoral
+
+## A competitividade mede o quanto a votação foi equilibrada entre os candidatos.
+
+competitividade = 1 - (diferença absoluta entre os candidatos / votos válidos)
+
+Quanto mais próximo de 1, mais disputada é a localidade.
+
+##Tecnologias utilizadas
+Python
+Streamlit
+Pandas
+NumPy
+Plotly
+GeoPandas
+OpenAI API
 
 ## Estrutura do projeto
-
-```text id="g2f8cn"
 dashboard-eleitoral-tuntum-ia/
 ├── app.py
 ├── requirements.txt
@@ -40,45 +157,12 @@ dashboard-eleitoral-tuntum-ia/
 ├── LICENSE
 ├── .gitignore
 ├── data/
+│   ├── SEÇÕES.csv
+│   ├── SEÇÕES(1).csv
+│   ├── VOTACAO_PREFEITO.csv
+│   └── tuntum_malha.geojson
 ├── docs/
 ├── assets/
 ├── outputs/
 ├── notebooks/
 └── tests/
-```
-
-## Executar localmente
-
-```bash id="l5w7pr"
-pip install -r requirements.txt
-python -m streamlit run app.py
-```
-
-## Configurar API OpenAI
-
-```powershell id="n4m1tb"
-setx OPENAI_API_KEY "SUA_CHAVE_AQUI"
-```
-
-## Modos de IA disponíveis
-
-* IA local
-* IA online
-* IA híbrida
-
-## Aplicações práticas
-
-* leitura estratégica de território
-* apoio à decisão política
-* priorização de agenda
-* mobilização territorial
-* análise de competitividade
-
-## Autor
-
-Gilliard Léda
-MIT License
-
-Copyright (c) 2026 Gilliard Léda
-
-Permission is hereby granted, free of charge, to any person obtaining a copy...
