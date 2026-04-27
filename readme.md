@@ -51,7 +51,7 @@ Ajudar na identificação de territórios com maior potencial de atuação eleit
 
 > Adicione aqui prints do dashboard.
 
-## Sugestões de imagens:
+Sugestões de imagens:
 
 
 assets/dashboard_home.png
@@ -59,8 +59,11 @@ assets/mapa_tuntum.png
 assets/zona_rural.png
 assets/analise_ia.png
 
+Exemplo em Markdown:
 
-## Principais funcionalidades
+![Tela inicial](assets/dashboard_home.png)
+![Mapa territorial](assets/mapa_tuntum.png)
+Principais funcionalidades
 Visão geral da eleição
 KPIs principais;
 total de votos por candidato;
@@ -89,12 +92,12 @@ votos por candidato;
 pontos mais estratégicos.
 Organização territorial
 
-##O painel separa as análises em:
+O painel separa as análises em:
 
 Zona Urbana;
 Zona Rural.
 
-##Cada aba possui:
+Cada aba possui:
 
 KPIs próprios;
 gráficos comparativos;
@@ -102,13 +105,13 @@ tabela de seções;
 resumo por ponto de votação.
 Inteligência artificial híbrida
 
-##O painel possui três modos de IA:
+O painel possui três modos de IA:
 
 IA Local: gera análise estratégica sem custo de API;
 IA Online: usa API da OpenAI;
 IA Híbrida: tenta API online e, em caso de erro, usa IA local automaticamente.
 
-##A IA responde perguntas como:
+A IA responde perguntas como:
 
 Quais localidades são mais promissoras?
 Onde há maior risco?
@@ -118,29 +121,29 @@ Quais pontos de votação são prioritários?
 Qual a diferença entre zona urbana e zona rural?
 Índice de oportunidade
 
-##O índice de oportunidade é calculado com base em três fatores:
+O índice de oportunidade é calculado com base em três fatores:
 
 Índice = 0.45 * abstenção normalizada
        + 0.35 * eleitorado normalizado
        + 0.20 * competitividade normalizada
 Interpretação
 
-##Quanto maior o índice, maior o potencial estratégico da localidade.
+Quanto maior o índice, maior o potencial estratégico da localidade.
 
-##Territórios com alto índice tendem a reunir:
+Territórios com alto índice tendem a reunir:
 
 muitos eleitores;
 abstenção relevante;
 disputa competitiva.
 Competitividade eleitoral
 
-## A competitividade mede o quanto a votação foi equilibrada entre os candidatos.
+A competitividade mede o quanto a votação foi equilibrada entre os candidatos.
 
 competitividade = 1 - (diferença absoluta entre os candidatos / votos válidos)
 
 Quanto mais próximo de 1, mais disputada é a localidade.
 
-##Tecnologias utilizadas
+Tecnologias utilizadas
 Python
 Streamlit
 Pandas
@@ -148,8 +151,7 @@ NumPy
 Plotly
 GeoPandas
 OpenAI API
-
-## Estrutura do projeto
+Estrutura do projeto
 dashboard-eleitoral-tuntum-ia/
 ├── app.py
 ├── requirements.txt
@@ -165,4 +167,88 @@ dashboard-eleitoral-tuntum-ia/
 ├── assets/
 ├── outputs/
 ├── notebooks/
+└── tests/
+Instalação
+
+Clone o repositório:
+
+git clone https://github.com/gilliardleda2018/dashboard-eleitoral-tuntum-ia.git
+
+Entre na pasta:
+
+cd dashboard-eleitoral-tuntum-ia
+
+Crie um ambiente virtual:
+
+python -m venv .venv
+
+Ative o ambiente no Windows:
+
+.\.venv\Scripts\Activate.ps1
+
+Instale as dependências:
+
+pip install -r requirements.txt
+Executar o dashboard
+python -m streamlit run app.py
+
+O painel abrirá no navegador, normalmente em:
+
+http://localhost:8501
+Configurar IA Online
+
+Para usar a API da OpenAI, configure a variável de ambiente:
+
+setx OPENAI_API_KEY "SUA_CHAVE_AQUI"
+
+Depois feche e abra o PowerShell novamente.
+
+Caso a API esteja sem crédito, use:
+
+IA Local
+
+ou:
+
+IA Híbrida
+Dados necessários
+
+O projeto espera os seguintes arquivos:
+
+SEÇÕES.csv
+SEÇÕES(1).csv
+VOTACAO_PREFEITO.csv
+tuntum_malha.geojson
+
+Esses arquivos devem estar na pasta esperada pelo app.py.
+
+Possíveis melhorias futuras
+integração com dados históricos de 2020 e 2022;
+simulação de transferência de votos;
+projeção de comparecimento;
+modelo preditivo por seção;
+clusterização territorial;
+geração automática de relatório PDF;
+deploy em Streamlit Community Cloud;
+autenticação para uso privado.
+Aplicações práticas
+
+Este projeto pode apoiar:
+
+leitura territorial;
+planejamento de campanha;
+priorização de visitas;
+análise de abstenção;
+avaliação de desempenho por região;
+construção de narrativa estratégica;
+organização de inteligência eleitoral.
+Observação ética
+
+Este painel é uma ferramenta de apoio analítico. A interpretação dos resultados deve considerar contexto local, validação de campo, legislação eleitoral e análise humana.
+
+Autor
+
+Gilliard Léda
+Data Scientist | Ciência de Dados aplicada a campanhas eleitorais, gestão pública e inteligência territorial.
+
+GitHub: gilliardleda2018
 └── tests/
